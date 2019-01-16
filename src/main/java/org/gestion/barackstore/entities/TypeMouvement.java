@@ -12,9 +12,9 @@ import javax.persistence.OneToMany;
 @Entity
 
 public class TypeMouvement implements Serializable{
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	
 	private int IdTypeMouvement;
 	private String Libelle;
 	private String DateOperation;
