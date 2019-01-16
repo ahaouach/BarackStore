@@ -4,7 +4,16 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.OneToMany;
+@Entity
+
 public class Barrique implements Serializable{
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	
 	   private long IdBarique;
 	   private String CodeBarre;
 	   private int XLigne; 
@@ -18,6 +27,7 @@ public class Barrique implements Serializable{
 	   private Long IdRack;
 	   private Rack Racks;
 	   private Etiquette Etiquettes;
+	   @OneToMany
 	   private Collection<Mouvement>Mouvements;
 	public long getIdBarique() {
 		return IdBarique;
