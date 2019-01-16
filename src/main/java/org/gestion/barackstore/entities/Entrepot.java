@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.Date;
 
 public class Entrepot implements Serializable{
-	 private long IdEntrepot;
+	  private long IdEntrepot;
 	  private String ReferenceEntrepot; 
 	  private float Superficie;
 	  private String DateOperation;
