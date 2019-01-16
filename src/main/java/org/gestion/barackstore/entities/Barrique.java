@@ -4,7 +4,15 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+@Entity
 public class Barrique implements Serializable{
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	   private long IdBarique;
 	   private String CodeBarre;
 	   private int XLigne; 
@@ -14,6 +22,7 @@ public class Barrique implements Serializable{
 	   private String DateMaturaVin;
 	   private String DateOperation;
 	   private boolean Etat= true;
+	   @OneToOne
 	   private Long IdEtiquette;
 	   private Long IdRack;
 	   private Rack Racks;

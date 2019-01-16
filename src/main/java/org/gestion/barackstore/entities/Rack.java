@@ -4,7 +4,15 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
 public class Rack implements Serializable{
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long IdRack;
 	private int Numero;
 	private String Emplacement;
@@ -13,8 +21,10 @@ public class Rack implements Serializable{
 	private int NbrePronfondeur;
 	private String DateOperation;
 	private Long IdEntrepot;
+	@OneToOne
 	private Entrepot Entrepot;
 	private boolean Etat= true ; 
+	@OneToMany
 	private Collection<Barrique> Barriques;
 	public long getIdRack() {
 		return IdRack;
