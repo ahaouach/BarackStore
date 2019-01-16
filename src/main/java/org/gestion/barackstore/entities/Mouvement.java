@@ -18,12 +18,15 @@ public class Mouvement implements Serializable{
 	  private String Observation;
 	  private boolean Etat=true ; 
 	  private Long IdBarrique;
+	  @OneToOne
 	  private Barrique Barriques;
 	  private Long IdUser;
 	  @OneToOne
 	  private User Users;
 	  private Long IdTypeMouvement;
+	 
 	  
+	  @OneToOne
 	  private TypeMouvement Typemouvements;
 	public long getIdMouvement() {
 		return IdMouvement;
