@@ -24,6 +24,8 @@ public class Mouvement implements Serializable{
 	  @OneToOne
 	  private User Users;
 	  private Long IdTypeMouvement;
+	 
+	  
 	  @OneToOne
 	  private TypeMouvement Typemouvements;
 	public long getIdMouvement() {
