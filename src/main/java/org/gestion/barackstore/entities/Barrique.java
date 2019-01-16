@@ -1,9 +1,10 @@
 package org.gestion.barackstore.entities;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 
-public class Barrique {
+public class Barrique implements Serializable{
 	   private long IdBarique;
 	   private String CodeBarre;
 	   private int XLigne; 

@@ -1,9 +1,10 @@
 package org.gestion.barackstore.entities;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 
-public class User {
+public class User implements Serializable{
 	  private long IdUser;
 	  private String Nom;
 	  private String Prenom;
