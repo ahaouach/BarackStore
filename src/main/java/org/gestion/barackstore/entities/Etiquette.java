@@ -4,11 +4,22 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+@Entity
 public class Etiquette implements Serializable {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long IdEtiquette;
 	private String Code;
 	private String DateOperation;
 	private boolean Etat = true;
+	
+	@ManyToOne
 	private Collection<Barrique> Barriques;
 	public long getIdEtiquette() {
 		return IdEtiquette;
