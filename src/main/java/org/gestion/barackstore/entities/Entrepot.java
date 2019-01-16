@@ -6,36 +6,22 @@ import java.util.Date;
 
 public class Entrepot implements Serializable{
 	 private long IdEntrepot;
-	  private String Reference; 
+	  private String ReferenceEntrepot; 
 	  private float Superficie;
-	  private Date DateOperation;
+	  private String DateOperation;
 	  private boolean Etat=true;
       private Collection<Rack> Racks;
-	public Entrepot(long idEntrepot, String reference, float superficie, Date dateOperation, boolean etat,
-			Collection<Rack> racks) {
-		super();
-		IdEntrepot = idEntrepot;
-		Reference = reference;
-		Superficie = superficie;
-		DateOperation = dateOperation;
-		Etat = etat;
-		Racks = racks;
-	}
-	public Entrepot() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 	public long getIdEntrepot() {
 		return IdEntrepot;
 	}
 	public void setIdEntrepot(long idEntrepot) {
 		IdEntrepot = idEntrepot;
 	}
-	public String getReference() {
-		return Reference;
+	public String getReferenceEntrepot() {
+		return ReferenceEntrepot;
 	}
-	public void setReference(String reference) {
-		Reference = reference;
+	public void setReferenceEntrepot(String referenceEntrepot) {
+		ReferenceEntrepot = referenceEntrepot;
 	}
 	public float getSuperficie() {
 		return Superficie;
@@ -43,10 +29,10 @@ public class Entrepot implements Serializable{
 	public void setSuperficie(float superficie) {
 		Superficie = superficie;
 	}
-	public Date getDateOperation() {
+	public String getDateOperation() {
 		return DateOperation;
 	}
-	public void setDateOperation(Date dateOperation) {
+	public void setDateOperation(String dateOperation) {
 		DateOperation = dateOperation;
 	}
 	public boolean isEtat() {
@@ -61,10 +47,22 @@ public class Entrepot implements Serializable{
 	public void setRacks(Collection<Rack> racks) {
 		Racks = racks;
 	}
+	public Entrepot() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Entrepot(String referenceEntrepot, float superficie, String dateOperation, boolean etat) {
+		super();
+		ReferenceEntrepot = referenceEntrepot;
+		Superficie = superficie;
+		DateOperation = dateOperation;
+		Etat = etat;
+	}
 	@Override
 	public String toString() {
-		return "Entrepot [IdEntrepot=" + IdEntrepot + ", Reference=" + Reference + ", Superficie=" + Superficie
-				+ ", DateOperation=" + DateOperation + ", Etat=" + Etat + ", Racks=" + Racks + "]";
+		return "Entrepot [IdEntrepot=" + IdEntrepot + ", ReferenceEntrepot=" + ReferenceEntrepot + ", Superficie="
+				+ Superficie + ", DateOperation=" + DateOperation + ", Etat=" + Etat + ", Racks=" + Racks + "]";
 	}
+	
       
 }

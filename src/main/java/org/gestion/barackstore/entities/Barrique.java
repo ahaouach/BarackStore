@@ -1,55 +1,28 @@
 package org.gestion.barackstore.entities;
 
+import java.util.Collection;
 import java.util.Date;
 
 public class Barrique {
 	   private long IdBarique;
-	   private long IdEtiquette;
-	   private long IdRack ;
 	   private String CodeBarre;
 	   private int XLigne; 
 	   private int YColone;
-	   private int ZEtiquette;
-	   private Date DateFabricaVin ; 
-	   private Date DateMaturaVin;
-	   private Date DateOperation;
+	   private String  ZEtiquette;
+	   private String DateFabricaVin ; 
+	   private String DateMaturaVin;
+	   private String DateOperation;
 	   private boolean Etat= true;
-	public Barrique() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public Barrique(long idBarique, long idEtiquette, long idRack, String codeBarre, int xLigne, int yColone,
-			int zEtiquette, Date dateFabricaVin, Date dateMaturaVin, Date dateOperation, boolean etat) {
-		super();
-		IdBarique = idBarique;
-		IdEtiquette = idEtiquette;
-		IdRack = idRack;
-		CodeBarre = codeBarre;
-		XLigne = xLigne;
-		YColone = yColone;
-		ZEtiquette = zEtiquette;
-		DateFabricaVin = dateFabricaVin;
-		DateMaturaVin = dateMaturaVin;
-		DateOperation = dateOperation;
-		Etat = etat;
-	}
+	   private Long IdEtiquette;
+	   private Long IdRack;
+	   private Rack Racks;
+	   private Etiquette Etiquettes;
+	   private Collection<Mouvement>Mouvements;
 	public long getIdBarique() {
 		return IdBarique;
 	}
 	public void setIdBarique(long idBarique) {
 		IdBarique = idBarique;
-	}
-	public long getIdEtiquette() {
-		return IdEtiquette;
-	}
-	public void setIdEtiquette(long idEtiquette) {
-		IdEtiquette = idEtiquette;
-	}
-	public long getIdRack() {
-		return IdRack;
-	}
-	public void setIdRack(long idRack) {
-		IdRack = idRack;
 	}
 	public String getCodeBarre() {
 		return CodeBarre;
@@ -69,28 +42,28 @@ public class Barrique {
 	public void setYColone(int yColone) {
 		YColone = yColone;
 	}
-	public int getZEtiquette() {
+	public String getZEtiquette() {
 		return ZEtiquette;
 	}
-	public void setZEtiquette(int zEtiquette) {
+	public void setZEtiquette(String zEtiquette) {
 		ZEtiquette = zEtiquette;
 	}
-	public Date getDateFabricaVin() {
+	public String getDateFabricaVin() {
 		return DateFabricaVin;
 	}
-	public void setDateFabricaVin(Date dateFabricaVin) {
+	public void setDateFabricaVin(String dateFabricaVin) {
 		DateFabricaVin = dateFabricaVin;
 	}
-	public Date getDateMaturaVin() {
+	public String getDateMaturaVin() {
 		return DateMaturaVin;
 	}
-	public void setDateMaturaVin(Date dateMaturaVin) {
+	public void setDateMaturaVin(String dateMaturaVin) {
 		DateMaturaVin = dateMaturaVin;
 	}
-	public Date getDateOperation() {
+	public String getDateOperation() {
 		return DateOperation;
 	}
-	public void setDateOperation(Date dateOperation) {
+	public void setDateOperation(String dateOperation) {
 		DateOperation = dateOperation;
 	}
 	public boolean isEtat() {
@@ -99,12 +72,60 @@ public class Barrique {
 	public void setEtat(boolean etat) {
 		Etat = etat;
 	}
+	public Long getIdEtiquette() {
+		return IdEtiquette;
+	}
+	public void setIdEtiquette(Long idEtiquette) {
+		IdEtiquette = idEtiquette;
+	}
+	public Long getIdRack() {
+		return IdRack;
+	}
+	public void setIdRack(Long idRack) {
+		IdRack = idRack;
+	}
+	public Rack getRacks() {
+		return Racks;
+	}
+	public void setRacks(Rack racks) {
+		Racks = racks;
+	}
+	public Etiquette getEtiquettes() {
+		return Etiquettes;
+	}
+	public void setEtiquettes(Etiquette etiquettes) {
+		Etiquettes = etiquettes;
+	}
+	public Collection<Mouvement> getMouvements() {
+		return Mouvements;
+	}
+	public void setMouvements(Collection<Mouvement> mouvements) {
+		Mouvements = mouvements;
+	}
+	public Barrique() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Barrique(String codeBarre, int xLigne, int yColone, String zEtiquette, String dateFabricaVin,
+			String dateMaturaVin, String dateOperation, boolean etat) {
+		super();
+		CodeBarre = codeBarre;
+		XLigne = xLigne;
+		YColone = yColone;
+		ZEtiquette = zEtiquette;
+		DateFabricaVin = dateFabricaVin;
+		DateMaturaVin = dateMaturaVin;
+		DateOperation = dateOperation;
+		Etat = etat;
+	}
 	@Override
 	public String toString() {
-		return "Barrique [IdBarique=" + IdBarique + ", IdEtiquette=" + IdEtiquette + ", IdRack=" + IdRack
-				+ ", CodeBarre=" + CodeBarre + ", XLigne=" + XLigne + ", YColone=" + YColone + ", ZEtiquette="
-				+ ZEtiquette + ", DateFabricaVin=" + DateFabricaVin + ", DateMaturaVin=" + DateMaturaVin
-				+ ", DateOperation=" + DateOperation + ", Etat=" + Etat + "]";
-	} 
-	   
+		return "Barrique [IdBarique=" + IdBarique + ", CodeBarre=" + CodeBarre + ", XLigne=" + XLigne + ", YColone="
+				+ YColone + ", ZEtiquette=" + ZEtiquette + ", DateFabricaVin=" + DateFabricaVin + ", DateMaturaVin="
+				+ DateMaturaVin + ", DateOperation=" + DateOperation + ", Etat=" + Etat + ", IdEtiquette=" + IdEtiquette
+				+ ", IdRack=" + IdRack + ", Racks=" + Racks + ", Etiquettes=" + Etiquettes + ", Mouvements="
+				+ Mouvements + "]";
+	}
+	
+	
 }

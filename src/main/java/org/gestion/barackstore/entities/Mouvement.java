@@ -4,58 +4,26 @@ import java.util.Collection;
 import java.util.Date;
 
 public class Mouvement {
-	  private long  IdMouv;
-	  private long IdBarique;
-	   private int IdTypeMouv;
-	  private long IdUser;
-	  private Date DateOperation;
+	  private long  IdMouvement;
+	  private String DateOperation;
 	  private String Observation;
 	  private boolean Etat=true ; 
-	  private Collection<Mouvement> Mouvements;
-	public Mouvement(long IdMouv , long idBarique, int idTypeMouv, long idUser, Date dateOperation, String observation,
-			boolean etat, Collection<Mouvement> mouvements) {
-		super();
-		IdMouv  = IdMouv ;
-		IdBarique = idBarique;
-		IdTypeMouv = idTypeMouv;
-		IdUser = idUser;
-		DateOperation = dateOperation;
-		Observation = observation;
-		Etat = etat;
-		Mouvements = mouvements;
+	  private Long IdBarrique;
+	  private Barrique Barriques;
+	  private Long IdUser;
+	  private User Users;
+	  private Long IdTypeMouvement;
+	  private TypeMouvement Typemouvements;
+	public long getIdMouvement() {
+		return IdMouvement;
 	}
-	public Mouvement() {
-		super();
-		// TODO Auto-generated constructor stub
+	public void setIdMouvement(long idMouvement) {
+		IdMouvement = idMouvement;
 	}
-	public long getIdMouv () {
-		return IdMouv ;
-	}
-	public void setIdMouv (long IdMouv ) {
-		IdMouv  = IdMouv ;
-	}
-	public long getIdBarique() {
-		return IdBarique;
-	}
-	public void setIdBarique(long idBarique) {
-		IdBarique = idBarique;
-	}
-	public int getIdTypeMouv() {
-		return IdTypeMouv;
-	}
-	public void setIdTypeMouv(int idTypeMouv) {
-		IdTypeMouv = idTypeMouv;
-	}
-	public long getIdUser() {
-		return IdUser;
-	}
-	public void setIdUser(long idUser) {
-		IdUser = idUser;
-	}
-	public Date getDateOperation() {
+	public String getDateOperation() {
 		return DateOperation;
 	}
-	public void setDateOperation(Date dateOperation) {
+	public void setDateOperation(String dateOperation) {
 		DateOperation = dateOperation;
 	}
 	public String getObservation() {
@@ -70,17 +38,61 @@ public class Mouvement {
 	public void setEtat(boolean etat) {
 		Etat = etat;
 	}
-	public Collection<Mouvement> getMouvements() {
-		return Mouvements;
+	public Long getIdBarrique() {
+		return IdBarrique;
 	}
-	public void setMouvements(Collection<Mouvement> mouvements) {
-		Mouvements = mouvements;
+	public void setIdBarrique(Long idBarrique) {
+		IdBarrique = idBarrique;
+	}
+	public Barrique getBarriques() {
+		return Barriques;
+	}
+	public void setBarriques(Barrique barriques) {
+		Barriques = barriques;
+	}
+	public Long getIdUser() {
+		return IdUser;
+	}
+	public void setIdUser(Long idUser) {
+		IdUser = idUser;
+	}
+	public User getUsers() {
+		return Users;
+	}
+	public void setUsers(User users) {
+		Users = users;
+	}
+	public Long getIdTypeMouvement() {
+		return IdTypeMouvement;
+	}
+	public void setIdTypeMouvement(Long idTypeMouvement) {
+		IdTypeMouvement = idTypeMouvement;
+	}
+	public TypeMouvement getTypemouvements() {
+		return Typemouvements;
+	}
+	public void setTypemouvements(TypeMouvement typemouvements) {
+		Typemouvements = typemouvements;
+	}
+	public Mouvement() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Mouvement(String dateOperation, String observation, boolean etat) {
+		super();
+		DateOperation = dateOperation;
+		Observation = observation;
+		Etat = etat;
 	}
 	@Override
 	public String toString() {
-		return "Mouvement [IdMouv =" + IdMouv  + ", IdBarique=" + IdBarique + ", IdTypeMouv=" + IdTypeMouv + ", IdUser="
-				+ IdUser + ", DateOperation=" + DateOperation + ", Observation=" + Observation + ", Etat=" + Etat
-				+ ", Mouvements=" + Mouvements + "]";
+		return "Mouvement [IdMouvement=" + IdMouvement + ", DateOperation=" + DateOperation + ", Observation="
+				+ Observation + ", Etat=" + Etat + ", IdBarrique=" + IdBarrique + ", Barriques=" + Barriques
+				+ ", IdUser=" + IdUser + ", Users=" + Users + ", IdTypeMouvement=" + IdTypeMouvement
+				+ ", Typemouvements=" + Typemouvements + "]";
 	}
+	
+	 
+	
 	  
 }

@@ -1,48 +1,26 @@
 package org.gestion.barackstore.entities;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 
-public class Rack {
+public class Rack implements Serializable{
 	private long IdRack;
-	private long IdEntrepot;
 	private int Numero;
 	private String Emplacement;
 	private int NbreLigne;
 	private int NbreColonne;
 	private int NbrePronfondeur;
-	private Date DateOperation;
+	private String DateOperation;
+	private Long IdEntrepot;
+	private Entrepot Entrepot;
 	private boolean Etat= true ; 
 	private Collection<Barrique> Barriques;
-	public Rack(long idRack, long idEntrepot, int numero, String emplacement, int nbreLigne, int nbreColonne,
-			int nbrePronfondeur, Date dateOperation, boolean etat, Collection<Barrique> barriques) {
-		super();
-		IdRack = idRack;
-		IdEntrepot = idEntrepot;
-		Numero = numero;
-		Emplacement = emplacement;
-		NbreLigne = nbreLigne;
-		NbreColonne = nbreColonne;
-		NbrePronfondeur = nbrePronfondeur;
-		DateOperation = dateOperation;
-		Etat = etat;
-		Barriques = barriques;
-	}
-	public Rack() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 	public long getIdRack() {
 		return IdRack;
 	}
 	public void setIdRack(long idRack) {
 		IdRack = idRack;
-	}
-	public long getIdEntrepot() {
-		return IdEntrepot;
-	}
-	public void setIdEntrepot(long idEntrepot) {
-		IdEntrepot = idEntrepot;
 	}
 	public int getNumero() {
 		return Numero;
@@ -74,11 +52,23 @@ public class Rack {
 	public void setNbrePronfondeur(int nbrePronfondeur) {
 		NbrePronfondeur = nbrePronfondeur;
 	}
-	public Date getDateOperation() {
+	public String getDateOperation() {
 		return DateOperation;
 	}
-	public void setDateOperation(Date dateOperation) {
+	public void setDateOperation(String dateOperation) {
 		DateOperation = dateOperation;
+	}
+	public Long getIdEntrepot() {
+		return IdEntrepot;
+	}
+	public void setIdEntrepot(Long idEntrepot) {
+		IdEntrepot = idEntrepot;
+	}
+	public Entrepot getEntrepot() {
+		return Entrepot;
+	}
+	public void setEntrepot(Entrepot entrepot) {
+		Entrepot = entrepot;
 	}
 	public boolean isEtat() {
 		return Etat;
@@ -92,12 +82,27 @@ public class Rack {
 	public void setBarriques(Collection<Barrique> barriques) {
 		Barriques = barriques;
 	}
+	public Rack() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Rack(int numero, String emplacement, int nbreLigne, int nbreColonne, int nbrePronfondeur,
+			String dateOperation) {
+		super();
+		Numero = numero;
+		Emplacement = emplacement;
+		NbreLigne = nbreLigne;
+		NbreColonne = nbreColonne;
+		NbrePronfondeur = nbrePronfondeur;
+		DateOperation = dateOperation;
+	}
 	@Override
 	public String toString() {
-		return "Rack [IdRack=" + IdRack + ", IdEntrepot=" + IdEntrepot + ", Numero=" + Numero + ", Emplacement="
-				+ Emplacement + ", NbreLigne=" + NbreLigne + ", NbreColonne=" + NbreColonne + ", NbrePronfondeur="
-				+ NbrePronfondeur + ", DateOperation=" + DateOperation + ", Etat=" + Etat + ", Barriques=" + Barriques
-				+ "]";
-	}  
+		return "Rack [IdRack=" + IdRack + ", Numero=" + Numero + ", Emplacement=" + Emplacement + ", NbreLigne="
+				+ NbreLigne + ", NbreColonne=" + NbreColonne + ", NbrePronfondeur=" + NbrePronfondeur
+				+ ", DateOperation=" + DateOperation + ", IdEntrepot=" + IdEntrepot + ", Entrepot=" + Entrepot
+				+ ", Etat=" + Etat + ", Barriques=" + Barriques + "]";
+	}
+	
 	
 }

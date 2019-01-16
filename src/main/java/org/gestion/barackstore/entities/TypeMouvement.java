@@ -4,71 +4,56 @@ import java.util.Collection;
 import java.util.Date;
 
 public class TypeMouvement {
-	private int IdMouv;
+	private int IdTypeMouvement;
 	private String Libelle;
-	private Date DateOperation;
-	private boolean Etat;
+	private String DateOperation;
+	private boolean Etat=true;
 	private Collection<Mouvement> Mouvements;
-
-	public TypeMouvement(int idMouv, String libelle, Date dateOperation, boolean etat,
-			Collection<Mouvement> mouvements) {
-		super();
-		IdMouv = idMouv;
+	public int getIdTypeMouvement() {
+		return IdTypeMouvement;
+	}
+	public void setIdTypeMouvement(int idTypeMouvement) {
+		IdTypeMouvement = idTypeMouvement;
+	}
+	public String getLibelle() {
+		return Libelle;
+	}
+	public void setLibelle(String libelle) {
 		Libelle = libelle;
+	}
+	public String getDateOperation() {
+		return DateOperation;
+	}
+	public void setDateOperation(String dateOperation) {
 		DateOperation = dateOperation;
+	}
+	public boolean isEtat() {
+		return Etat;
+	}
+	public void setEtat(boolean etat) {
 		Etat = etat;
+	}
+	public Collection<Mouvement> getMouvements() {
+		return Mouvements;
+	}
+	public void setMouvements(Collection<Mouvement> mouvements) {
 		Mouvements = mouvements;
 	}
-
 	public TypeMouvement() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	public int getIdMouv() {
-		return IdMouv;
-	}
-
-	public void setIdMouv(int idMouv) {
-		IdMouv = idMouv;
-	}
-
-	public String getLibelle() {
-		return Libelle;
-	}
-
-	public void setLibelle(String libelle) {
+	public TypeMouvement(String libelle, String dateOperation, boolean etat) {
+		super();
 		Libelle = libelle;
-	}
-
-	public Date getDateOperation() {
-		return DateOperation;
-	}
-
-	public void setDateOperation(Date dateOperation) {
 		DateOperation = dateOperation;
-	}
-
-	public boolean isEtat() {
-		return Etat;
-	}
-
-	public void setEtat(boolean etat) {
 		Etat = etat;
 	}
-
-	public Collection<Mouvement> getMouvements() {
-		return Mouvements;
-	}
-
-	public void setMouvements(Collection<Mouvement> mouvements) {
-		Mouvements = mouvements;
-	}
-
 	@Override
 	public String toString() {
-		return "TypeMouvement [IdMouv=" + IdMouv + ", Libelle=" + Libelle + ", DateOperation=" + DateOperation
-				+ ", Etat=" + Etat + ", Mouvements=" + Mouvements + "]";
+		return "TypeMouvement [IdTypeMouvement=" + IdTypeMouvement + ", Libelle=" + Libelle + ", DateOperation="
+				+ DateOperation + ", Etat=" + Etat + ", Mouvements=" + Mouvements + "]";
 	}
 
+	
 }

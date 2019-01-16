@@ -4,47 +4,22 @@ import java.util.Collection;
 import java.util.Date;
 
 public class User {
-	private long IdUser;
-	private long IdRole;
+	  private long IdUser;
 	  private String Nom;
 	  private String Prenom;
 	  private String Fonction;
 	  private String Login;
 	  private String PassWord;
-	  private Date DateOperation;
+	  private String DateOperation;
 	  private boolean Etat= true ;
+	  private Long IdRole;
+	  private Role Roles;
 	  private Collection<Mouvement> Mouvements;
-	public User() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-
-	public User(long idUser, long idRole, String nom, String prenom, String fonction, String login, String passWord,
-			Date dateOperation, boolean etat, Collection<Mouvement> mouvements) {
-		super();
-		IdUser = idUser;
-		IdRole = idRole;
-		Nom = nom;
-		Prenom = prenom;
-		Fonction = fonction;
-		Login = login;
-		PassWord = passWord;
-		DateOperation = dateOperation;
-		Etat = etat;
-		Mouvements = mouvements;
-	}
 	public long getIdUser() {
 		return IdUser;
 	}
 	public void setIdUser(long idUser) {
 		IdUser = idUser;
-	}
-	public long getIdRole() {
-		return IdRole;
-	}
-	public void setIdRole(long idRole) {
-		IdRole = idRole;
 	}
 	public String getNom() {
 		return Nom;
@@ -76,10 +51,10 @@ public class User {
 	public void setPassWord(String passWord) {
 		PassWord = passWord;
 	}
-	public Date getDateOperation() {
+	public String getDateOperation() {
 		return DateOperation;
 	}
-	public void setDateOperation(Date dateOperation) {
+	public void setDateOperation(String dateOperation) {
 		DateOperation = dateOperation;
 	}
 	public boolean isEtat() {
@@ -88,28 +63,44 @@ public class User {
 	public void setEtat(boolean etat) {
 		Etat = etat;
 	}
-	
-	
+	public Long getIdRole() {
+		return IdRole;
+	}
+	public void setIdRole(Long idRole) {
+		IdRole = idRole;
+	}
+	public Role getRoles() {
+		return Roles;
+	}
+	public void setRoles(Role roles) {
+		Roles = roles;
+	}
 	public Collection<Mouvement> getMouvements() {
 		return Mouvements;
 	}
-
-
 	public void setMouvements(Collection<Mouvement> mouvements) {
 		Mouvements = mouvements;
 	}
-
-
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public User(String nom, String prenom, String fonction, String login, String passWord, String dateOperation,
+			boolean etat) {
+		super();
+		Nom = nom;
+		Prenom = prenom;
+		Fonction = fonction;
+		Login = login;
+		PassWord = passWord;
+		DateOperation = dateOperation;
+		Etat = etat;
+	}
 	@Override
 	public String toString() {
-		return "User [IdUser=" + IdUser + ", IdRole=" + IdRole + ", Nom=" + Nom + ", Prenom=" + Prenom + ", Fonction="
-				+ Fonction + ", Login=" + Login + ", PassWord=" + PassWord + ", DateOperation=" + DateOperation
-				+ ", Etat=" + Etat + ", Mouvements=" + Mouvements + "]";
+		return "User [IdUser=" + IdUser + ", Nom=" + Nom + ", Prenom=" + Prenom + ", Fonction=" + Fonction + ", Login="
+				+ Login + ", PassWord=" + PassWord + ", DateOperation=" + DateOperation + ", Etat=" + Etat + ", IdRole="
+				+ IdRole + ", Roles=" + Roles + ", Mouvements=" + Mouvements + "]";
 	}
-
-
-
-	  
-	  
-	  
+		  
 }
