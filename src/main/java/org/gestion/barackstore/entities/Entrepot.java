@@ -4,9 +4,15 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
-
+@Entity
 public class Entrepot implements Serializable{
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	  private long IdEntrepot;
 	  private String ReferenceEntrepot; 
 	  private float Superficie;
