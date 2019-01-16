@@ -1,13 +1,16 @@
 package org.gestion.barackstore.entities;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 
-public class TypeMouvement {
+public class TypeMouvement implements Serializable{
 	private int IdTypeMouvement;
 	private String Libelle;
 	private String DateOperation;
 	private boolean Etat=true;
+
+	
 	private Collection<Mouvement> Mouvements;
 	public int getIdTypeMouvement() {
 		return IdTypeMouvement;
@@ -49,11 +52,7 @@ public class TypeMouvement {
 		DateOperation = dateOperation;
 		Etat = etat;
 	}
-	@Override
-	public String toString() {
-		return "TypeMouvement [IdTypeMouvement=" + IdTypeMouvement + ", Libelle=" + Libelle + ", DateOperation="
-				+ DateOperation + ", Etat=" + Etat + ", Mouvements=" + Mouvements + "]";
-	}
+	
 
 	
 }

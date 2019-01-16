@@ -1,10 +1,21 @@
 package org.gestion.barackstore.entities;
 
+import java.io.Serializable;
 import java.util.Collection;
 
-public class Role {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+@Entity
+public class Role implements Serializable{
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long IdRole;
 	private String Libelle;
+	@OneToMany
 	private Collection<User>Users;
 	public long getIdRole() {
 		return IdRole;

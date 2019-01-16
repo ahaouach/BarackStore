@@ -4,7 +4,19 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+@Entity
+//@Table(name="User")
 public class User implements Serializable{
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	  private long IdUser;
 	  private String Nom;
 	  private String Prenom;
@@ -14,7 +26,9 @@ public class User implements Serializable{
 	  private String DateOperation;
 	  private boolean Etat= true ;
 	  private Long IdRole;
+	  @OneToOne
 	  private Role Roles;
+	  @OneToMany
 	  private Collection<Mouvement> Mouvements;
 	public long getIdUser() {
 		return IdUser;

@@ -1,9 +1,18 @@
 package org.gestion.barackstore.entities;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 
-public class Mouvement {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+@Entity
+public class Mouvement implements Serializable{
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	  private long  IdMouvement;
 	  private String DateOperation;
 	  private String Observation;
@@ -11,8 +20,10 @@ public class Mouvement {
 	  private Long IdBarrique;
 	  private Barrique Barriques;
 	  private Long IdUser;
+	  @OneToOne
 	  private User Users;
 	  private Long IdTypeMouvement;
+	  
 	  private TypeMouvement Typemouvements;
 	public long getIdMouvement() {
 		return IdMouvement;
