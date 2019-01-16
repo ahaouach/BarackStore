@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.OneToMany;
+
 public class Rack implements Serializable{
 	private long IdRack;
 	private int Numero;
@@ -15,6 +17,7 @@ public class Rack implements Serializable{
 	private Long IdEntrepot;
 	private Entrepot Entrepot;
 	private boolean Etat= true ; 
+	@OneToMany
 	private Collection<Barrique> Barriques;
 	public long getIdRack() {
 		return IdRack;

@@ -4,12 +4,15 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.OneToMany;
+
 public class Entrepot implements Serializable{
 	 private long IdEntrepot;
 	  private String ReferenceEntrepot; 
 	  private float Superficie;
 	  private String DateOperation;
 	  private boolean Etat=true;
+	  @OneToMany
       private Collection<Rack> Racks;
 	public long getIdEntrepot() {
 		return IdEntrepot;

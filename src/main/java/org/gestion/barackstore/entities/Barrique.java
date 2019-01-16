@@ -9,12 +9,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 @Entity
 
 public class Barrique implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	
 	   private long IdBarique;
 	   private String CodeBarre;
 	   private int XLigne; 
@@ -26,7 +26,9 @@ public class Barrique implements Serializable{
 	   private boolean Etat= true;
 	   private Long IdEtiquette;
 	   private Long IdRack;
+	   @OneToOne
 	   private Rack Racks;
+	   @OneToOne
 	   private Etiquette Etiquettes;
 	   @OneToMany
 	   private Collection<Mouvement>Mouvements;
