@@ -29,7 +29,7 @@ public class Mouvement implements Serializable{
 	  @JoinColumn(name="IdUser")
 	  private User Users;
 	 
-	  @OneToOne
+	  @ManyToOne
 	  @JoinColumn(name="IdTypeMouvement")
 	  private TypeMouvement TypeMouvements;
 	  

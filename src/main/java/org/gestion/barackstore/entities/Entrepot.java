@@ -19,6 +19,7 @@ public class Entrepot implements Serializable{
 	  private float Superficie;
 	  private String DateOperation;
 	  private boolean Etat=true;
+	  
 	  @OneToMany(mappedBy="Entrepot",fetch=FetchType.LAZY)
       private Collection<Rack> Racks;
 	public long getIdEntrepot() {

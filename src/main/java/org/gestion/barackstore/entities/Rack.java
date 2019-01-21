@@ -28,8 +28,10 @@ public class Rack implements Serializable{
 	@JoinColumn(name="IdEntrepot")
 	private Entrepot Entrepot;
 	private boolean Etat= true ; 
+	
 	@OneToMany(mappedBy="Racks",fetch=FetchType.LAZY)
 	private Collection<Barrique> Barriques;
+	
 	public long getIdRack() {
 		return IdRack;
 	}

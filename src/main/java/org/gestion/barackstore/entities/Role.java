@@ -16,6 +16,7 @@ public class Role implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long IdRole;
 	private String Libelle;
+	
 	@OneToMany(mappedBy="Roles",fetch=FetchType.LAZY)
 	private Collection<User>Users;
 	public long getIdRole() {
