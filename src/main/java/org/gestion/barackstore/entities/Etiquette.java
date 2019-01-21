@@ -5,10 +5,12 @@ import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 @Entity
 public class Etiquette implements Serializable {
 	@Id
@@ -17,7 +19,8 @@ public class Etiquette implements Serializable {
 	private String Code;
 	private String DateOperation;
 	private boolean Etat = true;
-	@ManyToOne
+	
+	@OneToMany(mappedBy="Etiquettes",fetch=FetchType.LAZY)
 	private Collection<Barrique> Barriques;
 	public long getIdEtiquette() {
 		return IdEtiquette;

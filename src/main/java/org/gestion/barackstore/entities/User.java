@@ -5,9 +5,11 @@ import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -25,11 +27,14 @@ public class User implements Serializable{
 	  private String PassWord;
 	  private String DateOperation;
 	  private boolean Etat= true ;
-	  private Long IdRole;
-	  @OneToOne
+	  
+	  @ManyToOne
+	  @JoinColumn(name="IdRole")
 	  private Role Roles;
-	  @OneToMany
+	  
+	  @OneToMany(mappedBy="Users",fetch=FetchType.LAZY)
 	  private Collection<Mouvement> Mouvements;
+	  
 	public long getIdUser() {
 		return IdUser;
 	}
@@ -78,12 +83,7 @@ public class User implements Serializable{
 	public void setEtat(boolean etat) {
 		Etat = etat;
 	}
-	public Long getIdRole() {
-		return IdRole;
-	}
-	public void setIdRole(Long idRole) {
-		IdRole = idRole;
-	}
+	
 	public Role getRoles() {
 		return Roles;
 	}
@@ -111,11 +111,5 @@ public class User implements Serializable{
 		DateOperation = dateOperation;
 		Etat = etat;
 	}
-	@Override
-	public String toString() {
-		return "User [IdUser=" + IdUser + ", Nom=" + Nom + ", Prenom=" + Prenom + ", Fonction=" + Fonction + ", Login="
-				+ Login + ", PassWord=" + PassWord + ", DateOperation=" + DateOperation + ", Etat=" + Etat + ", IdRole="
-				+ IdRole + ", Roles=" + Roles + ", Mouvements=" + Mouvements + "]";
-	}
-		  
+	  
 }

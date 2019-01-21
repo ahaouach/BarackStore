@@ -5,9 +5,12 @@ import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 @Entity
@@ -24,14 +27,17 @@ public class Barrique implements Serializable{
 	   private String DateMaturaVin;
 	   private String DateOperation;
 	   private boolean Etat= true;
-	   private Long IdEtiquette;
-	   private Long IdRack;
-	   @OneToOne
+	   @ManyToOne
+	   @JoinColumn(name="IdRack")
 	   private Rack Racks;
-	   @OneToOne
+	   
+	   @ManyToOne
+	   @JoinColumn(name="IdEtiquette")
 	   private Etiquette Etiquettes;
-	   @OneToMany
+	   
+	   @OneToMany(mappedBy="Barriques",fetch=FetchType.LAZY)
 	   private Collection<Mouvement>Mouvements;
+	   
 	public long getIdBarique() {
 		return IdBarique;
 	}
@@ -86,18 +92,7 @@ public class Barrique implements Serializable{
 	public void setEtat(boolean etat) {
 		Etat = etat;
 	}
-	public Long getIdEtiquette() {
-		return IdEtiquette;
-	}
-	public void setIdEtiquette(Long idEtiquette) {
-		IdEtiquette = idEtiquette;
-	}
-	public Long getIdRack() {
-		return IdRack;
-	}
-	public void setIdRack(Long idRack) {
-		IdRack = idRack;
-	}
+	
 	public Rack getRacks() {
 		return Racks;
 	}
@@ -132,14 +127,7 @@ public class Barrique implements Serializable{
 		DateOperation = dateOperation;
 		Etat = etat;
 	}
-	@Override
-	public String toString() {
-		return "Barrique [IdBarique=" + IdBarique + ", CodeBarre=" + CodeBarre + ", XLigne=" + XLigne + ", YColone="
-				+ YColone + ", ZEtiquette=" + ZEtiquette + ", DateFabricaVin=" + DateFabricaVin + ", DateMaturaVin="
-				+ DateMaturaVin + ", DateOperation=" + DateOperation + ", Etat=" + Etat + ", IdEtiquette=" + IdEtiquette
-				+ ", IdRack=" + IdRack + ", Racks=" + Racks + ", Etiquettes=" + Etiquettes + ", Mouvements="
-				+ Mouvements + "]";
-	}
+	
 	
 	
 }

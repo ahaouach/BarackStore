@@ -8,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 @Entity
 public class Mouvement implements Serializable{
@@ -17,18 +20,21 @@ public class Mouvement implements Serializable{
 	  private String DateOperation;
 	  private String Observation;
 	  private boolean Etat=true ; 
-	  private Long IdBarrique;
-	  @OneToOne
-	  private Barrique Barriques;
-	  private Long IdUser;
-	  @OneToOne
-	  private User Users;
-	  private Long IdTypeMouvement;
 	 
+	  @ManyToOne
+	  @JoinColumn(name="IdBarrique")
+	  private Barrique Barriques;
 	  
+	  @ManyToOne
+	  @JoinColumn(name="IdUser")
+	  private User Users;
+	 
 	  @OneToOne
-	  private TypeMouvement Typemouvements;
-	public long getIdMouvement() {
+	  @JoinColumn(name="IdTypeMouvement")
+	  private TypeMouvement TypeMouvements;
+	  
+	  
+	  public long getIdMouvement() {
 		return IdMouvement;
 	}
 	public void setIdMouvement(long idMouvement) {
@@ -52,41 +58,26 @@ public class Mouvement implements Serializable{
 	public void setEtat(boolean etat) {
 		Etat = etat;
 	}
-	public Long getIdBarrique() {
-		return IdBarrique;
-	}
-	public void setIdBarrique(Long idBarrique) {
-		IdBarrique = idBarrique;
-	}
+	
 	public Barrique getBarriques() {
 		return Barriques;
 	}
 	public void setBarriques(Barrique barriques) {
 		Barriques = barriques;
 	}
-	public Long getIdUser() {
-		return IdUser;
-	}
-	public void setIdUser(Long idUser) {
-		IdUser = idUser;
-	}
+	
 	public User getUsers() {
 		return Users;
 	}
 	public void setUsers(User users) {
 		Users = users;
 	}
-	public Long getIdTypeMouvement() {
-		return IdTypeMouvement;
-	}
-	public void setIdTypeMouvement(Long idTypeMouvement) {
-		IdTypeMouvement = idTypeMouvement;
-	}
+	
 	public TypeMouvement getTypemouvements() {
-		return Typemouvements;
+		return TypeMouvements;
 	}
 	public void setTypemouvements(TypeMouvement typemouvements) {
-		Typemouvements = typemouvements;
+		TypeMouvements = typemouvements;
 	}
 	public Mouvement() {
 		super();
@@ -97,16 +88,5 @@ public class Mouvement implements Serializable{
 		DateOperation = dateOperation;
 		Observation = observation;
 		Etat = etat;
-	}
-	@Override
-	public String toString() {
-		return "Mouvement [IdMouvement=" + IdMouvement + ", DateOperation=" + DateOperation + ", Observation="
-				+ Observation + ", Etat=" + Etat + ", IdBarrique=" + IdBarrique + ", Barriques=" + Barriques
-				+ ", IdUser=" + IdUser + ", Users=" + Users + ", IdTypeMouvement=" + IdTypeMouvement
-				+ ", Typemouvements=" + Typemouvements + "]";
-	}
-	
-	 
-	
-	  
+	}	  
 }

@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,7 +19,7 @@ public class Entrepot implements Serializable{
 	  private float Superficie;
 	  private String DateOperation;
 	  private boolean Etat=true;
-	  @OneToMany
+	  @OneToMany(mappedBy="Entrepot",fetch=FetchType.LAZY)
       private Collection<Rack> Racks;
 	public long getIdEntrepot() {
 		return IdEntrepot;

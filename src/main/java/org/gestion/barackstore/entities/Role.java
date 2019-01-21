@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Collection;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,7 +16,7 @@ public class Role implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long IdRole;
 	private String Libelle;
-	@OneToMany
+	@OneToMany(mappedBy="Roles",fetch=FetchType.LAZY)
 	private Collection<User>Users;
 	public long getIdRole() {
 		return IdRole;

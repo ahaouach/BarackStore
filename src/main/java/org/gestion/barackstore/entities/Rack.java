@@ -5,9 +5,12 @@ import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 @Entity
 public class Rack implements Serializable{
@@ -20,10 +23,12 @@ public class Rack implements Serializable{
 	private int NbreColonne;
 	private int NbrePronfondeur;
 	private String DateOperation;
-	private Long IdEntrepot;
+	
+	@ManyToOne()
+	@JoinColumn(name="IdEntrepot")
 	private Entrepot Entrepot;
 	private boolean Etat= true ; 
-	@OneToMany
+	@OneToMany(mappedBy="Racks",fetch=FetchType.LAZY)
 	private Collection<Barrique> Barriques;
 	public long getIdRack() {
 		return IdRack;
@@ -67,12 +72,7 @@ public class Rack implements Serializable{
 	public void setDateOperation(String dateOperation) {
 		DateOperation = dateOperation;
 	}
-	public Long getIdEntrepot() {
-		return IdEntrepot;
-	}
-	public void setIdEntrepot(Long idEntrepot) {
-		IdEntrepot = idEntrepot;
-	}
+	
 	public Entrepot getEntrepot() {
 		return Entrepot;
 	}
@@ -105,13 +105,8 @@ public class Rack implements Serializable{
 		NbrePronfondeur = nbrePronfondeur;
 		DateOperation = dateOperation;
 	}
-	@Override
-	public String toString() {
-		return "Rack [IdRack=" + IdRack + ", Numero=" + Numero + ", Emplacement=" + Emplacement + ", NbreLigne="
-				+ NbreLigne + ", NbreColonne=" + NbreColonne + ", NbrePronfondeur=" + NbrePronfondeur
-				+ ", DateOperation=" + DateOperation + ", IdEntrepot=" + IdEntrepot + ", Entrepot=" + Entrepot
-				+ ", Etat=" + Etat + ", Barriques=" + Barriques + "]";
-	}
+	
+	
 	
 	
 }
