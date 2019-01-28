@@ -25,7 +25,7 @@ public class Test {
 		// metier.addBarrique(new Barrique("aa", 16, 12, c, "", "", "", true), 1,
 		// IdRack);
 
-		// metier.addBarrique(new Barrique("AAA", 3, 10, "D", "", "20/01/2019", "",
+		// metier.addBarrique(new Barrique("AAA", 3, 10, "D", "", "2019/01/20", "",
 		// true), 1, 6);
 		// metier.ModifEntrepot(1, "bbb", 5000);
 
@@ -34,10 +34,10 @@ public class Test {
 
 		// metier.ModifRole(1, "aaaa");
 
-		 metier.addUser(new User("bbbbb", "bbbbb", "Admin", "3", "azelarab",
-		 "20/03/2018", true), 1);
+		// metier.addUser(new User("bbbbb", "bbbbb", "Admin", "3", "azelarab",
+		// "20/03/2018", true), 1);
 		// metier.addTypeMouvement(new TypeMouvement("entrant", "20/05/2019", true));
-		// metier.addMouvement(new Mouvement("05/02/2019", "fuite", true),1, 1, 1);
+		 //metier.addMouvement(new Mouvement("2019/01/31", "fuite", true),1, 1, 1);
 		// metier.getUsers();
 		// metier.getRoles();
 
@@ -46,6 +46,7 @@ public class Test {
 		metier.RechercherRack(1);
 		metier.RechercherUser(5);
 		metier.AlerteMaturite();
+		metier.MouvementsDates("entrant", "2019/01/26", "2019/01/31");
 		// metier.ChangerMonPassword(7, "Admin1", "Admin001", "333");
 
 		// metier.PasswordOublier(7, "Admin1");

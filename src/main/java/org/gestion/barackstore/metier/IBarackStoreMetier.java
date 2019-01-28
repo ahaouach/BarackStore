@@ -1,5 +1,6 @@
 package org.gestion.barackstore.metier;
 
+import java.util.Date;
 import java.util.List;
 
 import org.gestion.barackstore.entities.Barrique;
@@ -64,6 +65,5 @@ public interface IBarackStoreMetier {
 
 	public List<Barrique> AlerteMaturite();
 
-//	public String ChangerMonPassword(long IdUser, String Login, String Password, String NewPassword);
-
+	public List<Mouvement> MouvementsDates(String Libelle, String DateDebut, String DateFin);
 }

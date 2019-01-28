@@ -63,8 +63,8 @@ public class BarackStoreDaoImpl implements IBarackStoreDao {
 	}
 
 	@Override
-	public Mouvement addMouvement(Mouvement mv, long IdBarrique, long IdTypeMouvement, long IdUser) {
-		Barrique b = em.find(Barrique.class, IdBarrique);
+	public Mouvement addMouvement(Mouvement mv, long IdBarique, long IdTypeMouvement, long IdUser) {
+		Barrique b = em.find(Barrique.class, IdBarique);
 		mv.setBarriques(b);
 		TypeMouvement tmv = em.find(TypeMouvement.class, IdTypeMouvement);
 		mv.setTypemouvements(tmv);
@@ -99,18 +99,7 @@ public class BarackStoreDaoImpl implements IBarackStoreDao {
 	public User addUser(User u, long IdRole) {
 		Role r = em.find(Role.class, IdRole);
 		u.setRoles(r);
-		/*try {
-			String key = "azelarab";
-			SecretKeySpec clef = new SecretKeySpec(key.getBytes("ISO-8859-2"), "Blowfish");
-			Cipher cipher = Cipher.getInstance("Blowfish");
-			cipher.init(Cipher.ENCRYPT_MODE, clef);
-			u.setPassWord(new String(cipher.doFinal(u.getPassWord().getBytes())));
-		} catch (Exception e) {
-			return null;
-		}*/
 		MessageDigest digester = null;
-
-	  
 	        try {
 	            digester = MessageDigest.getInstance("MD5");
 	        }
@@ -131,8 +120,7 @@ public class BarackStoreDaoImpl implements IBarackStoreDao {
 	                hexString.append(Integer.toHexString(0xFF & hash[i]));
 	            }
 	        }
-	        u.setPassWord(hexString.toString()); ;
-	    
+	        u.setPassWord(hexString.toString()); ;  
 		em.persist(u);
 		System.out.println("****************************  User numero :" + u.getIdUser()
 				+ " est ajouté avec succés !! :) *************************");
@@ -256,7 +244,7 @@ public class BarackStoreDaoImpl implements IBarackStoreDao {
 	public List<Barrique> RechercherBarrique(long IdEntrepot) {
 
 		// Entrepot e = em.find(Entrepot.class, IdEntrepot);
-		Query req = em.createNativeQuery("SELECT b.IdBarrique " + "From Barrique b "
+		Query req = em.createNativeQuery("SELECT b.IdBarique " + "From Barrique b "
 				+ "INNER JOIN Rack r ON r.IdRack = b.IdRack " + "INNER JOIN Entrepot e ON e.IdEntrepot = r.IdEntrepot "
 				+ "WHERE e.IdEntrepot = '" + IdEntrepot + "'");
 		List<String> a = req.getResultList();
@@ -295,9 +283,10 @@ public class BarackStoreDaoImpl implements IBarackStoreDao {
 	public List<Barrique> AlerteMaturite() {
 		final Date date = new Date();
 		String Dates = new SimpleDateFormat("dd/MM/yyyy").format(date);
-		Query req = em.createNativeQuery("SELECT b.DateMaturaVin From Barrique b ");
+		Query req = em.createNativeQuery("SELECT * FROM barrique b WHERE CONVERT(b.DateMaturaVin, DATETIME) <= NOW() ");
 		List<String> a = req.getResultList();
-		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+		System.out.println(""+a);
+		/*SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 		for (int i = 0; i < a.size(); i++) {
 			Date dateMaturVin = null;
 			try {
@@ -319,8 +308,21 @@ public class BarackStoreDaoImpl implements IBarackStoreDao {
 				System.out.println("***********   ALERTE !!  ************* Barriques qui ont eu leur maturité sont : "
 						+ listesDates+" à la date :"+dateConversion);
 			}
-		}
+		}*/
 		return null;
 	}
+
+	@Override
+	public List<Mouvement> MouvementsDates(String Libelle, String DateDebut, String DateFin) {
+		Query req = em.createNativeQuery("\r\n" + 
+				"\r\n" + 
+				"SELECT * FROM mouvement m INNER JOIN typemouvement tp ON tp.IdTypeMouvement = m.IdTypeMouvement WHERE tp.Libelle = '"+Libelle+"'  AND CONVERT(m.DateOperation, DATETIME) BETWEEN"
+				+ " CONVERT('"+DateDebut+"', DATETIME)  AND CONVERT('"+DateFin+"', DATETIME)");
+		List<String> res = req.getResultList();
+		System.out.println(""+res);
+		return req.getResultList();
+	}
+
+
 	
 }

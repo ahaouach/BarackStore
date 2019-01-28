@@ -1,5 +1,6 @@
 package org.gestion.barackstore.metier;
 
+import java.util.Date;
 import java.util.List;
 
 import org.gestion.barackstore.dao.IBarackStoreDao;
@@ -158,6 +159,11 @@ public class BarackStoreMetierImpl implements IBarackStoreMetier {
 	@Override
 	public List<Barrique> AlerteMaturite() {
 		return dao.AlerteMaturite();
+	}
+
+	@Override
+	public List<Mouvement> MouvementsDates(String Libelle, String DateDebut, String DateFin) {
+		return dao.MouvementsDates(Libelle, DateDebut, DateFin);
 	}
 
 	

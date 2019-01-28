@@ -1,5 +1,6 @@
 package org.gestion.barackstore.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.gestion.barackstore.entities.Barrique;
@@ -62,10 +63,11 @@ public interface IBarackStoreDao {
 	public List<Rack> RechercherRack(int Numero);
 
 	public List<User> RechercherUser(long IdUser);
-	
+
 	public List<Barrique> AlerteMaturite();
 
-	//public String ChangerMonPassword(long IdUser, String Login, String Password, String NewPassword);
+	public List<Mouvement> MouvementsDates(String Libelle, String DateDebut, String DateFin);
 	
 	
+
 }
