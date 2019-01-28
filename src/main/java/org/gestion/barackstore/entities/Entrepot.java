@@ -75,5 +75,6 @@ public class Entrepot implements Serializable{
 				+ Superficie + ", DateOperation=" + DateOperation + ", Etat=" + Etat + ", Racks=" + Racks + "]";
 	}
 	
+	
       
 }

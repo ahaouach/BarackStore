@@ -24,13 +24,31 @@ public class Rack implements Serializable{
 	private int NbrePronfondeur;
 	private String DateOperation;
 	
+	
 	@ManyToOne()
 	@JoinColumn(name="IdEntrepot")
 	private Entrepot Entrepot;
+	
 	private boolean Etat= true ; 
 	
 	@OneToMany(mappedBy="Racks",fetch=FetchType.LAZY)
 	private Collection<Barrique> Barriques;
+	
+	
+	public Rack(int numero, String emplacement, int nbreLigne, int nbreColonne, int nbrePronfondeur,
+			String dateOperation) {
+		super();
+		Numero = numero;
+		Emplacement = emplacement;
+		NbreLigne = nbreLigne;
+		NbreColonne = nbreColonne;
+		NbrePronfondeur = nbrePronfondeur;
+		DateOperation = dateOperation;
+		
+		
+	}
+	
+	
 	
 	public long getIdRack() {
 		return IdRack;
@@ -97,16 +115,7 @@ public class Rack implements Serializable{
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Rack(int numero, String emplacement, int nbreLigne, int nbreColonne, int nbrePronfondeur,
-			String dateOperation) {
-		super();
-		Numero = numero;
-		Emplacement = emplacement;
-		NbreLigne = nbreLigne;
-		NbreColonne = nbreColonne;
-		NbrePronfondeur = nbrePronfondeur;
-		DateOperation = dateOperation;
-	}
+	
 	
 	
 	
